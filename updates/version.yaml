@@ -1,0 +1,19 @@
+1.0.1: First version of Plenary
+1.0.2:
+    - Create Planary Table
+    - create_plenaries_table.php
+1.0.3:
+    - Create Category Table
+    - create_categories_table.php
+1.0.4:
+    - Create Planaries Categories Table
+    - create_plenaries_categories.php
+1.0.5:
+    - Create Planaries Settings Table
+    - create_settings_table.php
+1.0.6:
+    - Create Planaries Test Table for test
+    - create_plenaries_test_table.php
+1.0.7:
+    - Create Deputy table
+    - create_deputies_table.php

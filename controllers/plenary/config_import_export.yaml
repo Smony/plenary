@@ -1,0 +1,9 @@
+import:
+    title: Import places
+    modelClass: KitSoft\Plenary\Models\ItemImport
+    list: $/kitsoft/plenary/models/itemimport/columns.yaml
+
+export:
+    title: Export places
+    modelClass: KitSoft\Plenary\Models\ItemExport
+    list: $/kitsoft/plenary/models/itemexport/columns.yaml

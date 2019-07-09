@@ -1,0 +1,50 @@
+<h1>Всего: {{ __SELF__.plenaries.total() }}</h1>
+<h1>на странице: {{ __SELF__.plenaries.count() }}</h1>
+
+<hr>
+
+{% for plenary in __SELF__.plenaries %}
+<div class="newsPreview__content">
+    <h1><a class="badge badge-light" href="{{ plenary.url }}">{{ plenary.title }}</a></h1>
+</div>
+{% endfor %}
+
+<hr>
+
+<!--{{ __SELF__.plenaries.render|raw }}-->
+
+<hr>
+
+{% if __SELF__.plenaries.hasPages %}
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item">
+            {% if __SELF__.plenaries.currentPage > 1 %}
+            <a class="page-link"
+               href="{{ __SELF__.plenaries.fragment('foo').previousPageUrl }}"
+               rel="prev">prev</a>
+            {% else %}
+            <button type="button" class="page-link" disabled>prev</button>
+            {% endif %}
+        </li>
+
+        {% for page in range(1, __SELF__.plenaries.lastPage) %}
+        <li class="page-item">
+            <a class="page-link"
+               href="{{ __SELF__.plenaries.fragment('foo').url(page) }}">{{
+                page }}</a>
+        </li>
+        {% endfor %}
+
+        <li class="page-item">
+            {% if __SELF__.plenaries.hasMorePages %}
+            <a class="page-link"
+               href="{{ __SELF__.plenaries.fragment('foo').nextPageUrl }}"
+               rel="next">next</a>
+            {% else %}
+            <button type="button" class="page-link" disabled>next</button>
+            {% endif %}
+        </li>
+    </ul>
+</nav>
+{% endif %}

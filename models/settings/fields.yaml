@@ -1,0 +1,23 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+tabs:
+    fields:
+        name:
+            label: Configurate Setting
+            tab: setting
+        value:
+            label: 'kitsoft.plenary::lang.fields.label'
+            type: repeater
+            maxItems: 10
+            tab: setting
+            prompt: 'kitsoft.plenary::lang.fields.prompt'
+            form:
+                fields:
+                    title:
+                        label: 'kitsoft.plenary::lang.fields.title'
+                        type: text
+                    description:
+                        label: 'kitsoft.plenary::lang.fields.description'
+                        type: textarea

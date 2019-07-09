@@ -1,0 +1,27 @@
+<?php Block::put('breadcrumb') ?>
+    <ul>
+        <li><a href="<?= Backend::url('kitsoft/plenary/category') ?>">Category</a></li>
+        <li><?= e($this->pageTitle) ?></li>
+    </ul>
+<?php Block::endPut() ?>
+
+<?php if (!$this->fatalError): ?>
+
+<div class="layout fancy-layout">
+    <?= Form::open([
+            'class' => 'layout',
+    'data-change-monitor' => 'true',
+    'data-window-close-confirm' => e(trans('rainlab.blog::lang.post.close_confirm')),
+    'id' => 'post-form'
+    ]) ?>
+    <?= $this->formRender() ?>
+    <?= Form::close() ?>
+
+</div>
+
+<?php else: ?>
+
+    <p class="flash-message static error"><?= e($this->fatalError) ?></p>
+    <p><a href="<?= Backend::url('kitsoft/plenary/category') ?>" class="btn btn-default">Return to category list</a></p>
+
+<?php endif ?>

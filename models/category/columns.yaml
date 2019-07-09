@@ -1,0 +1,11 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    title:
+        label: Заголовок
+        type: text
+        searchable: true
+        invisible: false
+        sortable: true

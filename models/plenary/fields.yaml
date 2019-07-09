@@ -1,0 +1,69 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    title:
+        label: Заголовок
+        span: auto
+        type: text
+
+    slug:
+        label: 'Рядок в URL'
+        span: auto
+        preset:
+            field: title
+            type: slug
+        type: text
+
+    fields[title]:
+
+    fields[repeater]:
+        label: 'kitsoft.plenary::lang.fields.label'
+        type: repeater
+        maxItems: 20
+        prompt: 'kitsoft.plenary::lang.fields.prompt'
+        form:
+            fields:
+                title:
+                    label: 'kitsoft.plenary::lang.fields.title'
+                    type: text
+                description:
+                    label: 'kitsoft.plenary::lang.fields.description'
+                    type: textarea
+
+    new_image:
+        label: 'OG картинка Рекомендовані розміри (1024х512)'
+        mode: image
+        imageWidth: '100'
+        imageHeight: '100'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: left
+        type: fileupload
+
+    new_galery:
+        label: Фотогалерея
+        mode: image
+        imageWidth: '80'
+        imageHeight: '80'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload
+
+
+secondaryTabs:
+    fields:
+        published:
+            label: Опубліковано
+            span: auto
+            default: 0
+            type: switch
+
+
+

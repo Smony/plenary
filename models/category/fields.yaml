@@ -1,0 +1,33 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    title:
+        label: Заголовок
+        span: auto
+        type: text
+        placeholder: rainlab.blog::lang.post.title_placeholder
+
+    slug:
+        label: 'Рядок в URL'
+        span: auto
+        preset:
+            field: title
+            type: slug
+        type: text
+        placeholder: rainlab.blog::lang.post.slug_placeholder
+
+    toolbar:
+        type: partial
+        path: post_toolbar
+        cssClass: collapse-visible
+
+secondaryTabs:
+    fields:
+        published:
+            label: Опубліковано
+            span: auto
+            default: 0
+            type: switch
+            tab: Manage

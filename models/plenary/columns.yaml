@@ -1,0 +1,22 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    title:
+        label: Заголовок
+        type: partial
+        searchable: true
+        sortable: true
+
+    created_at:
+        label: Date
+        type: date
+        conditions: created_at >= ':filtered'
+
+    category:
+        label: Category
+        modelClass: Kitsoft\Plenary\Models\Category
+        relation: category
+        select: title
+

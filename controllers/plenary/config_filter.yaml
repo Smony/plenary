@@ -1,0 +1,25 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+
+    published:
+        label: kitsoft.plenary::lang.published
+        type: switch
+        conditions:
+            - published <> '1'
+            - published = '1'
+
+    category:
+        label: kitsoft.plenary::lang.category_name
+        type: group
+        modelClass: KitSoft\Plenary\Models\Category
+        nameFrom: title
+        conditions: category_id in (:filtered)
+
+    category_scope:
+        label: kitsoft.plenary::lang.category_name_scope
+        modelClass: KitSoft\Plenary\Models\Category
+        nameFrom: title
+        scope: FilterCategory
