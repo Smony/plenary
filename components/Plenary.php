@@ -2,14 +2,13 @@
 
 use Cms\Classes\ComponentBase;
 use Kitsoft\Plenary\Models\Plenary as PlenaryModel;
-use KitSoft\Plenary\Classes\PlenaryHelpers;
 use Cache;
+use App;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class Plenary extends ComponentBase
 {
     public $plenary;
-
-    public $test;
 
     public function componentDetails()
     {
@@ -28,25 +27,34 @@ class Plenary extends ComponentBase
     {
         $param = $this->param('slug');
 
-        if (!empty($param)) {
-            PlenaryHelpers::getPlenaryContent($param);
+        $id = $this->getId($param);
 
-            if (Cache::has(PlenaryHelpers::getCacheKey())) {
-                $data = Cache::get(PlenaryHelpers::getCacheKey());
+        if (!empty($id)) {
+            $cacheKey = 'kitsoft.plenart.' . $id;
+            if (!$plenary = Cache::get($cacheKey)) {
+                $name = self::getPlenaryName($id);
+                Cache::forever($cacheKey, $name);
             }
+        }
 
-            if (!empty($data) && $data['slug'] == $param) {
-                $this->plenary = $data;
-            } else {
-                return $this->controller->run('404');
-            }
+        if (!empty($plenary)) {
+            $this->plenary = $plenary;
+        } else {
+            return $this->controller->run('404');
         }
     }
 
-    protected function getPlenary($slug)
+    protected function getPlenaryName($id)
     {
-        $query = PlenaryModel::where('slug', $slug)->first();
+        return PlenaryModel::where('id', $id)->first()->title;
+    }
 
-        return $query;
+    protected function getId($slug)
+    {
+        try {
+            return PlenaryModel::where('slug', $slug)->firstOrFail()->id;
+        } catch (ModelNotFoundException $e) {
+            return [];
+        }
     }
 }

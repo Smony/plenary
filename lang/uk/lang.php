@@ -12,6 +12,7 @@
 	'add' => 'Добавить',
 	'label' => 'Fields',
     'published' => 'Опубліковано',
+    'preview_button' => 'Предпросмотр',
 
     'fields' => [
         'label' => 'Label Json',

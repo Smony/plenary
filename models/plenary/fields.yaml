@@ -56,14 +56,16 @@ fields:
         span: auto
         type: fileupload
 
-
 secondaryTabs:
     fields:
+        preview_button@update:
+            type: partial
         published:
             label: Опубліковано
             span: auto
             default: 0
             type: switch
+
 
 
 

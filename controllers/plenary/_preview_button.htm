@@ -1,0 +1,10 @@
+<?php use KitSoft\Core\Classes\BackendPreview; ?>
+
+<!-- Preview -->
+<a
+    href="<?= BackendPreview::link($model, 'plenary'); ?>"
+    target="_blank"
+    class="btn btn-primary oc-icon-crosshairs"
+    data-control="preview-button">
+    <?= e(trans('kitsoft.plenary::lang.preview_button')); ?>
+</a>

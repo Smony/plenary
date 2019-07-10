@@ -81,9 +81,4 @@ class Plenary extends Model
     public $attachMany = [
         'new_galery' => ['System\Models\File', 'order' => 'sort_order']
     ];
-
-    public function afterSave()
-    {
-        Cache::forget(PlenaryHelpers::getCacheKey());
-    }
 }
