@@ -25,36 +25,21 @@ class Plenary extends ComponentBase
 
     public function onRun()
     {
-        $param = $this->param('slug');
-
-        $id = $this->getId($param);
-
-        if (!empty($id)) {
-            $cacheKey = 'kitsoft.plenart.' . $id;
-            if (!$plenary = Cache::get($cacheKey)) {
-                $name = self::getPlenaryName($id);
-                Cache::forever($cacheKey, $name);
-            }
+        $cacheKey = 'kitsoft.plenart.' . $this->param('slug');
+        if (!$plenary = Cache::get($cacheKey)) {
+            $plenary = self::getPlenaryName($this->param('slug'));
+            Cache::forever($cacheKey, $plenary);
         }
 
-        if (!empty($plenary)) {
-            $this->plenary = $plenary;
-        } else {
-            return $this->controller->run('404');
-        }
+        $this->plenary = $plenary ?? [];
     }
 
-    protected function getPlenaryName($id)
-    {
-        return PlenaryModel::where('id', $id)->first()->title;
-    }
-
-    protected function getId($slug)
+    protected function getPlenaryName($slug)
     {
         try {
-            return PlenaryModel::where('slug', $slug)->firstOrFail()->id;
+            return PlenaryModel::where('slug', $slug)->firstOrFail()->title;
         } catch (ModelNotFoundException $e) {
-            return [];
+            return '';
         }
     }
 }

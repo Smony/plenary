@@ -20,3 +20,9 @@ columns:
         relation: category
         select: title
 
+    plenarysession:
+        label: Plenarysession
+        modelClass: Kitsoft\Plenary\Models\PlenarySession
+        relation: plenarysession
+        select: title
+

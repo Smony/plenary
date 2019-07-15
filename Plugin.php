@@ -12,6 +12,10 @@ use Lang;
  */
 class Plugin extends PluginBase
 {
+    public $require = [
+        'KitSoft.References'
+    ];
+
     /**
      * Returns information about this plugin.
      *
@@ -93,6 +97,14 @@ class Plugin extends PluginBase
                 'tab' => 'kitsoft.plenary::lang.category.name',
                 'label' => 'kitsoft.plenary::lang.category_name'
             ],
+            'kitsoft.plenary.plenarysession.index' => [
+                'tab' => 'kitsoft.plenary::lang.plenarysession.name',
+                'label' => 'kitsoft.plenary::lang.plenarysession'
+            ],
+            'kitsoft.plenary.plenarysession.create' => [
+                'tab' => 'kitsoft.plenary::lang.plenarysession.name',
+                'label' => 'kitsoft.plenary::lang.plenarysession'
+            ],
         ];
     }
 
@@ -122,6 +134,12 @@ class Plugin extends PluginBase
                         'icon' => 'icon-users',
                         'url' => Backend::url('kitsoft/plenary/plenary/index'),
                         'permissions' => ['kitsoft.plenary.plenary.index']
+                    ],
+                    'plenarysession' => [
+                        'label' => 'kitsoft.plenary::lang.plenarysession.name',
+                        'icon' => 'icon-briefcase',
+                        'url' => Backend::url('kitsoft/plenary/plenarysession'),
+                        'permissions' => ['kitsoft.plenary.plenarysession.index']
                     ],
                     'category' => [
                         'label' => 'kitsoft.plenary::lang.category.name',

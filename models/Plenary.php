@@ -25,7 +25,6 @@ class Plenary extends Model
 
     public $relationFinder = [
         'nameFrom' => 'title',
-        'descriptionFrom' => 'slug'
     ];
 
     /**
@@ -64,6 +63,7 @@ class Plenary extends Model
      */
     public $belongsTo = [
         'category' => ['KitSoft\Plenary\Models\Category'],
+        'plenarysession' => ['KitSoft\Plenary\Models\PlenarySession'],
     ];
 
     public $belongsToMany = [

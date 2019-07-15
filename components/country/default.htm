@@ -2,10 +2,10 @@
 
 <h1>{{ __SELF__.ajax }}</h1>
 <form>
-    <select data-request="onSelect" name="parent_selection" id="parent_selection"
-            data-request-update="ajax: '#selection'">
+    <select data-request="onSelect" name="parent_selection" id="parent_selection">
+        <option value="0">-- select plz country --</option>
         {% for key, country in data %}
-        <option value="{{ key }}">{{ country }}</option>
+        <option value="{{ key }}">{{ country.name }}</option>
         {% endfor %}
     </select>
 

@@ -40,7 +40,7 @@ class HideModelBehaviors extends ExtensionBase
      */
     public function scopeNotTitle($query)
     {
-        return $query->where('title', 'not like', '%0%');
+        return $query->where('title', 'not like', '%+%');
     }
 
     /**

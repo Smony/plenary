@@ -16,6 +16,7 @@ class CreatePlenariesTable extends Migration
             $table->text('fields')->nullable();
             $table->boolean('published')->default(false);
             $table->integer('category_id')->unsigned()->index()->nullable();
+            $table->integer('plenarysession_id')->unsigned()->index()->nullable();
 
             //Nesting
             $table->integer('parent_id')->unsigned()->index()->nullable();

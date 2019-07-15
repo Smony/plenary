@@ -17,3 +17,6 @@
 1.0.7:
     - Create Deputy table
     - create_deputies_table.php
+1.0.8:
+    - Create Plenary Session table
+    - create_plenary_sessions_table.php

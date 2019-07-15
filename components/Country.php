@@ -10,7 +10,6 @@ use Redirect;
 
 class Country extends ComponentBase
 {
-
     public $ajax;
     public $country;
     public $cities;
@@ -41,15 +40,17 @@ class Country extends ComponentBase
 
         switch ($parent) {
             case 'ua':
-                $result = Config::get('kitsoft.plenary::cities')['ua'];
+                $result = $this->country[$parent];
                 break;
 
             case 'ru':
-                $result = Config::get('kitsoft.plenary::cities')['ru'];
+                $result = $this->country[$parent];
                 break;
         }
 
-        $this->page['cities'] = $result;
+        return ['#selection' => $this->renderPartial('ajax', [
+            'cities' => $result['cities']
+        ])];
     }
 
     public function onSend()

@@ -56,6 +56,13 @@ fields:
         span: auto
         type: fileupload
 
+    plenarysession:
+        label: Plenarysession
+        span: auto
+        type: relation
+        nameFrom: title
+        emptyOption: '-- no plenarysession --'
+
 secondaryTabs:
     fields:
         preview_button@update:

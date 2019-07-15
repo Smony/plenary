@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Plenary Session
+
+# Model Form Field configuration
+form: $/kitsoft/plenary/models/plenarysession/fields.yaml
+
+# Model Class name
+modelClass: Kitsoft\Plenary\Models\PlenarySession
+
+# Default redirect location
+defaultRedirect: kitsoft/plenary/plenarysession
+
+# Create page
+create:
+    title: Create Plenary Session
+    redirect: kitsoft/plenary/plenarysession/update/:id
+    redirectClose: kitsoft/plenary/plenarysession
+
+# Update page
+update:
+    title: Edit Plenary Session
+    redirect: kitsoft/plenary/plenarysession
+    redirectClose: kitsoft/plenary/plenarysession
+
+# Preview page
+preview:
+    title: Preview Plenary Session

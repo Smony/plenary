@@ -1,0 +1,58 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    title:
+        label: kitsoft.plenary::lang.plenarysession.title
+        span: auto
+        type: text
+
+    date_start:
+        label: kitsoft.plenary::lang.plenarysession.date_start
+        span: left
+        cssClass: checkbox-align
+        type: datepicker
+        mode: datetime
+
+    published:
+        label: kitsoft.plenary::lang.plenarysession.published
+        span: auto
+        default: 0
+        type: switch
+
+    date_refresh:
+        label: kitsoft.plenary::lang.plenarysession.date_refresh
+        span: left
+        cssClass: checkbox-align
+        type: datepicker
+        mode: datetime
+
+    name_session:
+        label: kitsoft.plenary::lang.plenarysession.name_session
+        span: auto
+        type: text
+
+    number:
+        label: kitsoft.plenary::lang.plenarysession.number
+        span: auto
+        type: text
+
+    number_session:
+        label: kitsoft.plenary::lang.plenarysession.number_session
+        span: auto
+        type: text
+
+    convocation:
+        label: Скликання
+        span: auto
+        type: relation
+        nameFrom: title
+        emptyOption: '-- no convocation --'
+
+    meetingtype:
+        label: Тип засідання
+        span: auto
+        type: relation
+        nameFrom: title
+        emptyOption: '-- no meetingtype --'
